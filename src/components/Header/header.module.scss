@@ -1,0 +1,36 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: darkblue;
+
+  &_list {
+    width: 1200px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+
+    &_item {
+      margin: 0;
+
+      &_link {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+
+
