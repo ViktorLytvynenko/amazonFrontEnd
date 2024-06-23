@@ -6,7 +6,7 @@ export interface IStateSales {
 }
 
 const initialState: IStateSales = {
-    data: [],
+    data: {},
 };
 
 export const getData = createAsyncThunk(
