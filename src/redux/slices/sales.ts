@@ -12,11 +12,12 @@ const initialState: IStateSales = {
 export const getData = createAsyncThunk(
     "sales/getData",
     async () => {
-        try {
-            return await getSalesData();
-        } catch (error) {
-            throw Error("Failed to fetch sales data");
-        }
+        const response = await getSalesData();
+        const yearData = response[0].year;
+        return Object.keys(yearData).map((year) => ({
+           year,
+            sales: parseInt(yearData[year], 10),
+        }));
     }
 );
 
