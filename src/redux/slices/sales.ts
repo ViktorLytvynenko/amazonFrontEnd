@@ -1,8 +1,8 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getSalesData} from "../../api/getSalesData";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getSalesData } from "../../api/getSalesData";
 
 export interface IStateSales {
-    data: any;
+    data: { [year: string]: number };
 }
 
 const initialState: IStateSales = {
@@ -13,11 +13,15 @@ export const getData = createAsyncThunk(
     "sales/getData",
     async () => {
         const response = await getSalesData();
-        const yearData = response[0].year;
-        return Object.keys(yearData).map((year) => ({
-           year,
-            sales: parseInt(yearData[year], 10),
-        }));
+        const yearData = response.year;
+        const salesByYear: { [year: string]: number } = {};
+
+        // Преобразуем объект year с годами и продажами в нужный формат
+        Object.keys(yearData).forEach((year) => {
+            salesByYear[year] = parseInt(yearData[year], 10);
+        });
+
+        return salesByYear;
     }
 );
 
@@ -29,7 +33,7 @@ export const salesSlice = createSlice({
         builder
             .addCase(getData.fulfilled, (state, action) => {
                 state.data = action.payload;
-            })
+            });
     },
 });
 
