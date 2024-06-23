@@ -3,7 +3,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: darkblue;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
 
   &_list {
     width: 1200px;
@@ -12,10 +17,8 @@
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    padding: 0;
 
     &_item {
-      margin: 0;
 
       &_link {
         text-decoration: none;
@@ -30,7 +33,3 @@
     }
   }
 }
-
-
-
-

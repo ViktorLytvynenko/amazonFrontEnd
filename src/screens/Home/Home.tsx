@@ -7,7 +7,16 @@ const Home: FC<any> = () => {
         <div>
             <Header/>
             <div className={styles.container}>
-                Home page
+                <div className={styles.container_texts}>
+                    <p className={styles.container_texts_text1}>
+                        We Foster Your Business Progress
+                    </p>
+                    <p className={styles.container_texts_text2}>
+                        In line with reputable agencies,
+                        our effectiveness is measured
+                        by recent outcomes
+                    </p>
+                </div>
             </div>
         </div>
     )
